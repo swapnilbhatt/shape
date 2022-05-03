@@ -1,20 +1,22 @@
 package lib;
 
 public class Rectangle extends AbstractShape {
-    private final int width, height;
+    private final double width, height;
 
-    Rectangle(Point p1, int width, int height) {
+    Rectangle(double width, double height) {
         this.width = width;
         this.height = height;
     }
 
     @Override
     public double getArea() {
-        return this.width * this.height;
+        double area = this.width * this.height;
+        return this.roundOff(area);
     }
 
     @Override
     public double getPerimeter() {
-        return 2 * (this.width + this.height);
+        double perimeter = 2 * (this.width + this.height);
+        return this.roundOff(perimeter);
     }
 }

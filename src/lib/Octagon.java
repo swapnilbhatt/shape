@@ -9,11 +9,13 @@ public class Octagon extends AbstractShape {
 
     @Override
     public double getArea() {
-        return (2 * (1 + Math.sqrt(2)) * this.s * this.s);
+        double area = (2 * (1 + Math.sqrt(2)) * this.s * this.s);
+        return this.roundOff(area);
     }
 
     @Override
     public double getPerimeter() {
-        return 8 * this.s;
+        double perimeter = 8 * this.s;
+        return this.roundOff(perimeter);
     }
 }

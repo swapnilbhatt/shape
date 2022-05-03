@@ -9,11 +9,13 @@ public class Hexagon extends AbstractShape {
 
     @Override
     public double getArea() {
-        return ((3 * Math.sqrt(3) * (this.s * this.s)) / 2);
+        double area = ((3 * Math.sqrt(3) * (this.s * this.s)) / 2);
+        return this.roundOff(area);
     }
 
     @Override
     public double getPerimeter() {
-        return 6 * this.s;
+        double perimeter = 6 * this.s;
+        return this.roundOff(perimeter);
     }
 }

@@ -10,11 +10,13 @@ public class Pentagon extends AbstractShape {
 
     @Override
     public double getArea() {
-        return (Math.sqrt(5 * (5 + 2 * (Math.sqrt(5)))) * this.s * this.s) / 4;
+        double area = (Math.sqrt(5 * (5 + 2 * (Math.sqrt(5)))) * this.s * this.s) / 4;
+        return this.roundOff(area);
     }
 
     @Override
     public double getPerimeter() {
-        return 5.0 * this.s;
+        double perimeter = 5.0 * this.s;
+        return this.roundOff(perimeter);
     }
 }

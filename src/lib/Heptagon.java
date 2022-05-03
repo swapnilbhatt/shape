@@ -9,11 +9,13 @@ public class Heptagon extends AbstractShape {
 
     @Override
     public double getArea() {
-        return 3.634 * this.s * this.s;
+        double area = 3.634 * this.s * this.s;
+        return this.roundOff(area);
     }
 
     @Override
     public double getPerimeter() {
-        return 7.0 * this.s;
+        double perimeter = 7.0 * this.s;
+        return this.roundOff(perimeter);
     }
 }

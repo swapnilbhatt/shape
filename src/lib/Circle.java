@@ -1,19 +1,21 @@
 package lib;
 
 public class Circle extends AbstractShape {
-    private final int r;
+    private final double r;
 
-    public Circle(Point c, int r) {
+    public Circle(double r) {
         this.r = r;
     }
 
     @Override
     public double getArea() {
-        return Math.PI * this.r * this.r;
+        double area = Math.PI * this.r * this.r;
+        return this.roundOff(area);
     }
 
     @Override
     public double getPerimeter() {
-        return 2 * Math.PI * this.r;
+        double perimeter = 2 * Math.PI * this.r;
+        return this.roundOff(perimeter);
     }
 }
