@@ -11,8 +11,17 @@ class HexagonTest {
     Shape hexagon;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws InvalidArgumentException {
         this.hexagon = new Hexagon(5);
+    }
+
+    @Test
+    void invalidParameter(){
+        try {
+            this.hexagon = new Hexagon(-5);
+        } catch (InvalidArgumentException ex){
+            assertEquals(ex.getMessage(), "Please enter valid length");
+        }
     }
 
     @Test

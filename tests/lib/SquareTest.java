@@ -10,8 +10,17 @@ class SquareTest {
     Shape square;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws InvalidArgumentException {
         this.square = new Square(5);
+    }
+
+    @Test
+    void invalidParameter() {
+        try {
+            this.square = new Square(-5);
+        } catch (InvalidArgumentException ex) {
+            assertEquals(ex.getMessage(), "Please enter valid length");
+        }
     }
 
     @Test

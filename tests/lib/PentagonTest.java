@@ -10,8 +10,17 @@ class PentagonTest {
     Shape pentagon;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws InvalidArgumentException {
         this.pentagon = new Pentagon(5);
+    }
+
+    @Test
+    void invalidParameter(){
+        try {
+            this.pentagon = new Pentagon(-5);
+        } catch (InvalidArgumentException ex){
+            assertEquals(ex.getMessage(), "Please enter valid length");
+        }
     }
 
     @Test

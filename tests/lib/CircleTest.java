@@ -9,8 +9,17 @@ class CircleTest {
     Shape circle;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws InvalidArgumentException {
         this.circle = new Circle(5);
+    }
+
+    @Test
+    void invalidParameter(){
+        try {
+            this.circle = new Circle(-5);
+        } catch (InvalidArgumentException ex){
+            assertEquals(ex.getMessage(), "Please enter valid length");
+        }
     }
 
     @Test

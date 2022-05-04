@@ -10,8 +10,29 @@ class RectangleTest {
     Shape rectangle;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws InvalidArgumentException {
         this.rectangle = new Rectangle(5 , 4);
+    }
+
+    @Test
+    void invalidParameter(){
+        try {
+            this.rectangle = new Rectangle(-5, 4);
+        } catch (InvalidArgumentException ex){
+            assertEquals(ex.getMessage(), "Please enter valid length");
+        }
+
+        try {
+            this.rectangle = new Rectangle(5, -4);
+        } catch (InvalidArgumentException ex){
+            assertEquals(ex.getMessage(), "Please enter valid length");
+        }
+
+        try {
+            this.rectangle = new Rectangle(-5, -4);
+        } catch (InvalidArgumentException ex){
+            assertEquals(ex.getMessage(), "Please enter valid length");
+        }
     }
 
     @Test

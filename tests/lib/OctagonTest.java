@@ -10,8 +10,17 @@ class OctagonTest {
     Shape octagon;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws InvalidArgumentException {
         this.octagon = new Octagon(5);
+    }
+
+    @Test
+    void invalidParameter(){
+        try {
+            this.octagon = new Octagon(-5);
+        } catch (InvalidArgumentException ex){
+            assertEquals(ex.getMessage(), "Please enter valid length");
+        }
     }
 
     @Test

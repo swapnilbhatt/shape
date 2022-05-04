@@ -3,7 +3,10 @@ package lib;
 public class Rectangle extends AbstractShape {
     private final double width, height;
 
-    Rectangle(double width, double height) {
+    Rectangle(double width, double height) throws InvalidArgumentException {
+        if (width <= 0 || height <= 0)
+            throw new InvalidArgumentException(this.invalidLengthMsg);
+
         this.width = width;
         this.height = height;
     }

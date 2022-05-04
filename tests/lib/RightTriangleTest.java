@@ -6,36 +6,30 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TriangleTest {
-    Shape triangle;
+class RightTriangleTest {
+    Shape rightTriangle;
 
     @BeforeEach
     void setUp() throws InvalidArgumentException {
-        this.triangle = new Triangle(5, 4, 7);
+        this.rightTriangle = new RightTriangle(5 , 4);
     }
 
     @Test
     void invalidParameter(){
         try {
-            this.triangle = new Triangle(-5, 4, 7);
+            this.rightTriangle = new RightTriangle(-5, 4);
         } catch (InvalidArgumentException ex){
             assertEquals(ex.getMessage(), "Please enter valid length");
         }
 
         try {
-            this.triangle = new Triangle(5, -4, 7);
+            this.rightTriangle = new RightTriangle(5, -4);
         } catch (InvalidArgumentException ex){
             assertEquals(ex.getMessage(), "Please enter valid length");
         }
 
         try {
-            this.triangle = new Triangle(5, 4, -7);
-        } catch (InvalidArgumentException ex){
-            assertEquals(ex.getMessage(), "Please enter valid length");
-        }
-
-        try {
-            this.triangle = new Triangle(-5, -4, -7);
+            this.rightTriangle = new RightTriangle(-5, -4);
         } catch (InvalidArgumentException ex){
             assertEquals(ex.getMessage(), "Please enter valid length");
         }
@@ -43,16 +37,16 @@ class TriangleTest {
 
     @Test
     void getArea() {
-        assertEquals(this.triangle.getArea(), 9.80);
+        assertEquals(this.rightTriangle.getArea(), 10);
     }
 
     @Test
     void getPerimeter() {
-        assertEquals(this.triangle.getPerimeter(), 16);
+        assertEquals(this.rightTriangle.getPerimeter(), 15.4);
     }
 
     @AfterEach
     void tearDown() {
-        this.triangle = null;
+        this.rightTriangle = null;
     }
 }

@@ -1,25 +1,23 @@
 package lib;
 
-import lib.Heptagon;
-import lib.Shape;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class HeptagonTest {
-    Shape heptagon;
+class EquilateralTriangleTest {
+    Shape equilateralTriangle;
 
     @BeforeEach
     void setUp() throws InvalidArgumentException {
-        this.heptagon = new Heptagon(5);
+        this.equilateralTriangle = new EquilateralTriangle(5);
     }
 
     @Test
     void invalidParameter(){
         try {
-            this.heptagon = new Heptagon(-5);
+            this.equilateralTriangle = new EquilateralTriangle(-5);
         } catch (InvalidArgumentException ex){
             assertEquals(ex.getMessage(), "Please enter valid length");
         }
@@ -27,16 +25,16 @@ class HeptagonTest {
 
     @Test
     void getArea() {
-        assertEquals(this.heptagon.getArea(), 90.85);
+        assertEquals(this.equilateralTriangle.getArea(), 10.83);
     }
 
     @Test
     void getPerimeter() {
-        assertEquals(this.heptagon.getPerimeter(), 35);
+        assertEquals(this.equilateralTriangle.getPerimeter(), 15);
     }
 
     @AfterEach
     void tearDown() {
-        this.heptagon = null;
+        this.equilateralTriangle = null;
     }
 }
