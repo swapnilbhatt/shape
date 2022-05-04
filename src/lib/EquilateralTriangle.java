@@ -9,7 +9,9 @@ public class EquilateralTriangle extends Triangle {
      *
      * @param side Positive nonzero width of sides of EquilateralTriangle
      */
-    public EquilateralTriangle(double side) throws InvalidArgumentException {
-        super(side, side, side);
+    public EquilateralTriangle(Point p, int side) throws InvalidArgumentException {
+        super(new Point[]{new Point(p.x, p.y),
+                new Point(p.x + side, p.y),
+                new Point(p.x + (side / 2), (p.y + (int) (side * Math.sqrt(3)) / 2))});
     }
 }

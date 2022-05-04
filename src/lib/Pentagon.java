@@ -1,22 +1,23 @@
 package lib;
 
+import java.awt.*;
+import java.util.Arrays;
+
 /**
  * Pentagon has five equal size edges
  * Class to create regular Pentagon whose all five sides are equal length
  */
-public class Pentagon extends AbstractShape {
+public class Pentagon extends Polygon {
     private final double side;
 
     /**
      * Creates new instance of Pentagon with five equal size edges
      *
-     * @param side Positive nonzero length of Pentagon
+     * @param points Five points array to draw the Pentagon
      */
-    public Pentagon(double side) throws InvalidArgumentException {
-        if (side <= 0)
-            throw new InvalidArgumentException(this.invalidLengthMsg);
-
-        this.side = side;
+    public Pentagon(Point[] points) throws InvalidArgumentException {
+        super(points, 5);
+        this.side = this.getEuclideanDistance(points[0], points[1]);
     }
 
     /**

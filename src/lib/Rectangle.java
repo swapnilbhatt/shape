@@ -3,8 +3,8 @@ package lib;
 /**
  * Class to create Rectangle who has opposite sides parallel to each other and of equal size
  */
-public class Rectangle extends AbstractShape {
-    private final double width, height;
+public class Rectangle extends Polygon {
+    private final int width, height;
 
     /**
      * Creates new instance of Rectangle of given width and height
@@ -12,7 +12,10 @@ public class Rectangle extends AbstractShape {
      * @param width  Positive nonzero width of Rectangle
      * @param height Positive nonzero height of Rectangle
      */
-    Rectangle(double width, double height) throws InvalidArgumentException {
+    public Rectangle(Point p, int width, int height) throws InvalidArgumentException {
+        super(new Point[]{p, new Point(p.x + width, p.y),
+                new Point(p.x + width, p.y + height), new Point(p.x, p.y + height)}, 4);
+
         if (width <= 0 || height <= 0)
             throw new InvalidArgumentException(this.invalidLengthMsg);
 

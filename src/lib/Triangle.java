@@ -1,25 +1,25 @@
 package lib;
 
+import java.awt.*;
+import java.util.Arrays;
+
 /**
  * Class to create Triangle of given three side lengths
  */
-public class Triangle extends AbstractShape {
+public class Triangle extends Polygon {
     private final double a, b, c;
 
     /**
      * Creates new instance of Triangle of given three side lengths
      *
-     * @param a Positive nonzero width of first side of Triangle
-     * @param b Positive nonzero width of second side of Triangle
-     * @param c Positive nonzero width of third side of Triangle
+     * @param points Three points array to draw the triangle
      */
-    public Triangle(double a, double b, double c) throws InvalidArgumentException {
-        if (a <= 0 || b <= 0 || c <= 0)
-            throw new InvalidArgumentException(this.invalidLengthMsg);
+    public Triangle(Point[] points) throws InvalidArgumentException {
+        super(points, 3);
 
-        this.a = a;
-        this.b = b;
-        this.c = c;
+        this.a = this.getEuclideanDistance(points[0], points[1]);
+        this.b = this.getEuclideanDistance(points[1], points[2]);
+        this.c = this.getEuclideanDistance(points[2], points[0]);
     }
 
     /**

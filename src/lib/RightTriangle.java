@@ -10,7 +10,7 @@ public class RightTriangle extends Triangle {
      * @param a Positive nonzero width of first side of triangle who forms 90 degree with second side
      * @param b Positive nonzero width of second side of triangle who forms 90 degree with first side
      */
-    public RightTriangle(double a, double b) throws InvalidArgumentException {
-        super(a, b, Math.sqrt(a * a + b * b));
+    public RightTriangle(Point p, int a, int b) throws InvalidArgumentException {
+        super(new Point[]{new Point(p.x, p.y), new Point(p.x + a, p.y), new Point(p.x, p.y + b)});
     }
 }

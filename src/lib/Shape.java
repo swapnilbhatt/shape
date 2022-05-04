@@ -1,5 +1,7 @@
 package lib;
 
+import java.awt.*;
+
 /**
  * Interface for all shape
  */
@@ -17,4 +19,17 @@ public interface Shape {
      * @return Perimeter of the Shape object
      */
     double getPerimeter();
+
+    /**
+     * Draws given object
+     *
+     */
+    void draw();
+
+    /**
+     * Fills given object with specified border color and fill color
+     * @param border Color of border color used for drawing the object
+     * @param fill Color used for filling the object
+     */
+    void fill(Color border, Color fill);
 }

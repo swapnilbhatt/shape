@@ -4,19 +4,17 @@ package lib;
  * Hexagon has six equal size edges
  * Class to create regular Hexagon whose all six sides are equal length
  */
-public class Hexagon extends AbstractShape {
+public class Hexagon extends Polygon {
     private final double side;
 
     /**
      * Creates new instance of Hexagon with six equal size edges
      *
-     * @param side Positive nonzero length of Hexagon
+     * @param points Six points array to draw the Heptagon
      */
-    public Hexagon(double side) throws InvalidArgumentException {
-        if (side <= 0)
-            throw new InvalidArgumentException(this.invalidLengthMsg);
-
-        this.side = side;
+    public Hexagon(Point[] points) throws InvalidArgumentException {
+        super(points, 6);
+        this.side = this.getEuclideanDistance(points[0], points[1]);
     }
 
     /**

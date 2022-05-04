@@ -9,7 +9,7 @@ public class Square extends Rectangle {
      *
      * @param width Positive nonzero width of Square
      */
-    public Square(double width) throws InvalidArgumentException {
-        super(width, width);
+    public Square(Point p, int width) throws InvalidArgumentException {
+        super(p, width, width);
     }
 }

@@ -1,21 +1,22 @@
 package lib;
 
+import java.awt.*;
+import java.util.Arrays;
+
 /**
- * Class to create regular Octagon whose all six sides are equal length
+ * Class to create regular Octagon whose all eight sides are equal length
  */
-public class Octagon extends AbstractShape {
+public class Octagon extends Polygon {
     private final double side;
 
     /**
      * Creates new instance of Octagon with six equal size edges
      *
-     * @param side Positive nonzero length of Octagon
+     * @param points Eight points array to draw the Heptagon
      */
-    public Octagon(double side) throws InvalidArgumentException {
-        if (side <= 0)
-            throw new InvalidArgumentException(this.invalidLengthMsg);
-
-        this.side = side;
+    public Octagon(Point[] points) throws InvalidArgumentException {
+        super(points, 8);
+        this.side = this.getEuclideanDistance(points[0], points[1]);
     }
 
     /**

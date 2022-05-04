@@ -1,22 +1,25 @@
 package lib;
 
+import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * Heptagon has seven equal size edges
  * Class to create regular Heptagon whose all seven sides are equal length
  */
-public class Heptagon extends AbstractShape {
+public class Heptagon extends Polygon {
     private final double side;
 
     /**
      * Creates new instance of Heptagon with seven equal size edges
      *
-     * @param side Positive nonzero length of Heptagon
+     * @param points Seven points array to draw the Heptagon
      */
-    public Heptagon(double side) throws InvalidArgumentException {
-        if (side <= 0)
-            throw new InvalidArgumentException(this.invalidLengthMsg);
+    public Heptagon(Point[] points) throws InvalidArgumentException {
+        super(points, 7);
 
-        this.side = side;
+        this.side = this.getEuclideanDistance(points[0], points[1]);
     }
 
     /**
@@ -26,7 +29,7 @@ public class Heptagon extends AbstractShape {
      */
     @Override
     public double getArea() {
-        double area = 3.634 * this.side * this.side;
+        double area = 3.634 * Math.pow(this.side, 2);
         return this.roundOff(area);
     }
 
