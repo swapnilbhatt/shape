@@ -20,6 +20,32 @@ class HeptagonTest {
     }
 
     @Test
+    void setDrawColor(){
+        this.heptagon.setDrawColor(Color.BLUE);
+        assertEquals(this.heptagon.getDrawColor(), Color.BLUE);
+    }
+
+    @Test
+    void setFillColor(){
+        this.heptagon.setFillColor(Color.RED);
+        assertEquals(this.heptagon.getFillColor(), Color.RED);
+    }
+
+    @Test
+    void fill() {
+        this.heptagon.fill(Color.BLUE, Color.RED);
+        assertEquals(this.heptagon.getDrawColor(), Color.BLUE);
+        assertEquals(this.heptagon.getFillColor(), Color.RED);
+        assertTrue(this.heptagon.isFill());
+    }
+
+    @Test
+    void draw() {
+        this.heptagon.draw();
+        assertFalse(this.heptagon.isFill());
+    }
+
+    @Test
     void getArea() {
         assertEquals(this.heptagon.getArea(), 109456.41);
     }

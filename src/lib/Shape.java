@@ -49,4 +49,14 @@ public interface Shape {
      * @param color Color of border color used for filling the object
      */
     void setFillColor(Color color);
+
+    /**
+     * Get draw color
+     */
+    Color getDrawColor();
+
+    /**
+     * Get fill color
+     */
+    Color getFillColor();
 }

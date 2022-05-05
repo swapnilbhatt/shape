@@ -17,6 +17,32 @@ class SquareTest {
     }
 
     @Test
+    void setDrawColor(){
+        this.square.setDrawColor(Color.BLUE);
+        assertEquals(this.square.getDrawColor(), Color.BLUE);
+    }
+
+    @Test
+    void setFillColor(){
+        this.square.setFillColor(Color.RED);
+        assertEquals(this.square.getFillColor(), Color.RED);
+    }
+
+    @Test
+    void fill() {
+        this.square.fill(Color.BLUE, Color.RED);
+        assertEquals(this.square.getDrawColor(), Color.BLUE);
+        assertEquals(this.square.getFillColor(), Color.RED);
+        assertTrue(this.square.isFill());
+    }
+
+    @Test
+    void draw() {
+        this.square.draw();
+        assertFalse(this.square.isFill());
+    }
+
+    @Test
     void invalidParameter() {
         try {
             this.square = new Square(new Point(40,50), -50);

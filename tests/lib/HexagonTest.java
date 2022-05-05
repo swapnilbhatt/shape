@@ -17,6 +17,32 @@ class HexagonTest {
     }
 
     @Test
+    void setDrawColor(){
+        this.hexagon.setDrawColor(Color.BLUE);
+        assertEquals(this.hexagon.getDrawColor(), Color.BLUE);
+    }
+
+    @Test
+    void setFillColor(){
+        this.hexagon.setFillColor(Color.RED);
+        assertEquals(this.hexagon.getFillColor(), Color.RED);
+    }
+
+    @Test
+    void fill() {
+        this.hexagon.fill(Color.BLUE, Color.RED);
+        assertEquals(this.hexagon.getDrawColor(), Color.BLUE);
+        assertEquals(this.hexagon.getFillColor(), Color.RED);
+        assertTrue(this.hexagon.isFill());
+    }
+
+    @Test
+    void draw() {
+        this.hexagon.draw();
+        assertFalse(this.hexagon.isFill());
+    }
+
+    @Test
     void getArea() {
         assertEquals(this.hexagon.getArea(), 103923.05);
     }

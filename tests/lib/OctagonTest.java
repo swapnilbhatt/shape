@@ -17,6 +17,32 @@ class OctagonTest {
     }
 
     @Test
+    void setDrawColor(){
+        this.octagon.setDrawColor(Color.BLUE);
+        assertEquals(this.octagon.getDrawColor(), Color.BLUE);
+    }
+
+    @Test
+    void setFillColor(){
+        this.octagon.setFillColor(Color.RED);
+        assertEquals(this.octagon.getFillColor(), Color.RED);
+    }
+
+    @Test
+    void fill() {
+        this.octagon.fill(Color.BLUE, Color.RED);
+        assertEquals(this.octagon.getDrawColor(), Color.BLUE);
+        assertEquals(this.octagon.getFillColor(), Color.RED);
+        assertTrue(this.octagon.isFill());
+    }
+
+    @Test
+    void draw() {
+        this.octagon.draw();
+        assertFalse(this.octagon.isFill());
+    }
+
+    @Test
     void getArea() {
         assertEquals(this.octagon.getArea(), 113137.08);
     }

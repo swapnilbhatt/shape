@@ -9,7 +9,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CircleTest {
-    Shape circle;
+    Circle circle;
 
     @BeforeEach
     void setUp() throws InvalidArgumentException {
@@ -23,6 +23,32 @@ class CircleTest {
         } catch (InvalidArgumentException ex){
             assertEquals(ex.getMessage(), "Enter valid radius");
         }
+    }
+
+    @Test
+    void setDrawColor(){
+        this.circle.setDrawColor(Color.BLUE);
+        assertEquals(this.circle.getDrawColor(), Color.BLUE);
+    }
+
+    @Test
+    void setFillColor(){
+        this.circle.setFillColor(Color.RED);
+        assertEquals(this.circle.getFillColor(), Color.RED);
+    }
+
+    @Test
+    void fill() {
+        this.circle.fill(Color.BLUE, Color.RED);
+        assertEquals(this.circle.getDrawColor(), Color.BLUE);
+        assertEquals(this.circle.getFillColor(), Color.RED);
+        assertTrue(this.circle.isFill());
+    }
+
+    @Test
+    void draw() {
+        this.circle.draw();
+        assertFalse(this.circle.isFill());
     }
 
     @Test

@@ -9,7 +9,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RectangleTest {
-    Shape rectangle;
+    Rectangle rectangle;
 
     @BeforeEach
     void setUp() throws InvalidArgumentException {
@@ -38,6 +38,32 @@ class RectangleTest {
         } catch (InvalidArgumentException ex){
             assertEquals(ex.getMessage(), msg);
         }
+    }
+
+    @Test
+    void setDrawColor(){
+        this.rectangle.setDrawColor(Color.BLUE);
+        assertEquals(this.rectangle.getDrawColor(), Color.BLUE);
+    }
+
+    @Test
+    void setFillColor(){
+        this.rectangle.setFillColor(Color.RED);
+        assertEquals(this.rectangle.getFillColor(), Color.RED);
+    }
+
+    @Test
+    void fill() {
+        this.rectangle.fill(Color.BLUE, Color.RED);
+        assertEquals(this.rectangle.getDrawColor(), Color.BLUE);
+        assertEquals(this.rectangle.getFillColor(), Color.RED);
+        assertTrue(this.rectangle.isFill());
+    }
+
+    @Test
+    void draw() {
+        this.rectangle.draw();
+        assertFalse(this.rectangle.isFill());
     }
 
     @Test

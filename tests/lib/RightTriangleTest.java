@@ -9,7 +9,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RightTriangleTest {
-    Shape rightTriangle;
+    RightTriangle rightTriangle;
 
     @BeforeEach
     void setUp() {
@@ -17,8 +17,34 @@ class RightTriangleTest {
     }
 
     @Test
+    void setDrawColor(){
+        this.rightTriangle.setDrawColor(Color.BLUE);
+        assertEquals(this.rightTriangle.getDrawColor(), Color.BLUE);
+    }
+
+    @Test
+    void setFillColor(){
+        this.rightTriangle.setFillColor(Color.RED);
+        assertEquals(this.rightTriangle.getFillColor(), Color.RED);
+    }
+
+    @Test
     void getArea() {
         assertEquals(this.rightTriangle.getArea(), 1000.0);
+    }
+
+    @Test
+    void fill() {
+        this.rightTriangle.fill(Color.BLUE, Color.RED);
+        assertEquals(this.rightTriangle.getDrawColor(), Color.BLUE);
+        assertEquals(this.rightTriangle.getFillColor(), Color.RED);
+        assertTrue(this.rightTriangle.isFill());
+    }
+
+    @Test
+    void draw() {
+        this.rightTriangle.draw();
+        assertFalse(this.rightTriangle.isFill());
     }
 
     @Test

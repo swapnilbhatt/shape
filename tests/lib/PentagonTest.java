@@ -17,6 +17,32 @@ class PentagonTest {
     }
 
     @Test
+    void setDrawColor(){
+        this.pentagon.setDrawColor(Color.BLUE);
+        assertEquals(this.pentagon.getDrawColor(), Color.BLUE);
+    }
+
+    @Test
+    void setFillColor(){
+        this.pentagon.setFillColor(Color.RED);
+        assertEquals(this.pentagon.getFillColor(), Color.RED);
+    }
+
+    @Test
+    void fill() {
+        this.pentagon.fill(Color.BLUE, Color.RED);
+        assertEquals(this.pentagon.getDrawColor(), Color.BLUE);
+        assertEquals(this.pentagon.getFillColor(), Color.RED);
+        assertTrue(this.pentagon.isFill());
+    }
+
+    @Test
+    void draw() {
+        this.pentagon.draw();
+        assertFalse(this.pentagon.isFill());
+    }
+
+    @Test
     void getArea() {
         assertEquals(this.pentagon.getArea(), 95105.65);
     }
