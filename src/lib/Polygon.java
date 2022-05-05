@@ -35,7 +35,7 @@ public abstract class Polygon extends AbstractShape{
             g2d.setColor(this.getFillColor());
             g2d.fillPolygon(x, y, this.sides);
 
-            g2d.setColor(this.getBorderColor());
+            g2d.setColor(this.getDrawColor());
             g2d.drawPolygon(x, y, this.sides);
         } else {
             g2d.drawPolygon(x, y, this.sides);

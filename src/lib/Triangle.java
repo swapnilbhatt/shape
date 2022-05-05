@@ -1,6 +1,7 @@
 package lib;
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -10,7 +11,7 @@ public class Triangle extends Polygon {
     private final double[] sideLengths;
 
     public double[] getSideLengths() {
-        return sideLengths;
+        return Arrays.copyOf(sideLengths, 3);
     }
 
     /**
@@ -20,6 +21,8 @@ public class Triangle extends Polygon {
      */
     public Triangle(Point[] points) {
         super(points, 3);
+        this.setWindowTitle("Drawing a Triangle");
+
         this.sideLengths = new double[3];
 
         this.sideLengths[0] = this.getEuclideanDistance(points[0], points[1]);

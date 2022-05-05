@@ -28,8 +28,25 @@ public interface Shape {
 
     /**
      * Fills given object with specified border color and fill color
+     */
+    void fill();
+
+    /**
+     * Fills given object with specified border color and fill color
      * @param border Color of border color used for drawing the object
      * @param fill Color used for filling the object
      */
     void fill(Color border, Color fill);
+
+    /**
+     * Given object will get draw with this color
+     * @param color Color of border color used for drawing the object
+     */
+    void setDrawColor(Color color);
+
+    /**
+     * Given object will get filled with this color
+     * @param color Color of border color used for filling the object
+     */
+    void setFillColor(Color color);
 }

@@ -19,6 +19,7 @@ class EquilateralTriangleTest {
     @Test
     void shouldHaveSameSides() {
         double[] lengths = this.equilateralTriangle.getSideLengths();
+
         assertEquals(Math.round(lengths[0]), Math.round(lengths[1]));
         assertEquals(Math.round(lengths[1]), Math.round(lengths[2]));
         assertEquals(Math.round(lengths[2]), Math.round(lengths[0]));

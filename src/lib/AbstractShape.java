@@ -11,18 +11,27 @@ public abstract class AbstractShape extends JFrame implements Shape {
     private boolean isFill = false;
     private String windowTitle;
     private final int windowWidth, windowHeight;
-    private Color borderColor, fillColor;
+
+    private Color drawColor, fillColor;
 
     public boolean isFill() {
         return isFill;
     }
 
-    public Color getBorderColor() {
-        return borderColor;
+    public Color getDrawColor() {
+        return drawColor;
     }
 
     public Color getFillColor() {
         return fillColor;
+    }
+
+    public void setDrawColor(Color color) {
+        this.drawColor = color;
+    }
+
+    public void setFillColor(Color color) {
+        this.fillColor = color;
     }
 
     public void setWindowTitle(String windowTitle) {
@@ -42,10 +51,16 @@ public abstract class AbstractShape extends JFrame implements Shape {
     }
 
     @Override
-    public void fill(Color border, Color fill) {
+    public void fill() {
         this.isFill = true;
-        this.borderColor = border;
-        this.fillColor = fill;
+        this.display();
+    }
+
+    @Override
+    public void fill(Color drawColor, Color fillColor) {
+        this.isFill = true;
+        this.drawColor = drawColor;
+        this.fillColor = fillColor;
         this.display();
     }
 

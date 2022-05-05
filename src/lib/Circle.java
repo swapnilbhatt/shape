@@ -39,7 +39,7 @@ public class Circle extends AbstractShape {
             g2d.setColor(this.getFillColor());
             g2d.drawOval(center.x, center.y, radius, radius);
 
-            g2d.setColor(this.getBorderColor());
+            g2d.setColor(this.getDrawColor());
             g2d.fillOval(center.x, center.y, radius, radius);
         } else {
             g2d.drawOval(center.x, center.y, radius, radius);
