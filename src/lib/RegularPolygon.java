@@ -1,8 +1,10 @@
 package lib;
 
 import java.awt.*;
-import java.awt.Rectangle;
 
+/**
+ * Class for regular polygon whose all sides are equal
+ */
 public abstract class RegularPolygon extends Polygon {
     public RegularPolygon(int sides) {
         super(sides);
@@ -11,7 +13,7 @@ public abstract class RegularPolygon extends Polygon {
     /**
      * Function to calculate the coordinates of the vertices
      */
-    Point[] calculateVertices(Point center, float radius, int numVertices) {
+    public Point[] calculateVertices(Point center, float radius, int numVertices) {
         Point[] vertices = new Point[numVertices];
         double a = (2 * Math.PI) / numVertices;
 

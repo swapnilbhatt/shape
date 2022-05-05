@@ -3,7 +3,7 @@ package lib;
 import java.awt.*;
 import java.util.Arrays;
 
-public abstract class Polygon extends AbstractShape{
+public abstract class Polygon extends AbstractShape {
     private final int sides;
     private int[] x, y;
     private Point[] vertices;
@@ -12,16 +12,16 @@ public abstract class Polygon extends AbstractShape{
         return sides;
     }
 
-    Polygon(int sides){
+    Polygon(int sides) {
         this.sides = sides;
     }
 
-    Polygon(Point[] vertices, int sides)  {
+    Polygon(Point[] vertices, int sides) {
         this(sides);
         this.setVertices(vertices);
     }
 
-    public void setVertices(Point[] vertices)  {
+    public void setVertices(Point[] vertices) {
         this.vertices = vertices;
         this.x = Arrays.stream(vertices).mapToInt(p -> p.x).toArray();
         this.y = Arrays.stream(vertices).mapToInt(p -> p.y).toArray();

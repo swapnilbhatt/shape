@@ -8,11 +8,19 @@ import java.awt.*;
 public class Rectangle extends Polygon {
     private final int width, height;
 
+    /**
+     * Returns current width of rectangle
+     *
+     */
     @Override
     public int getWidth() {
         return width;
     }
 
+    /**
+     * Returns current height of rectangle
+     *
+     */
     @Override
     public int getHeight() {
         return height;
