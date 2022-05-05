@@ -7,7 +7,11 @@ import java.util.Arrays;
  * Class to create Triangle of given three side lengths
  */
 public class Triangle extends Polygon {
-    private final double a, b, c;
+    private final double[] sideLengths;
+
+    public double[] getSideLengths() {
+        return sideLengths;
+    }
 
     /**
      * Creates new instance of Triangle of given three side lengths
@@ -16,10 +20,11 @@ public class Triangle extends Polygon {
      */
     public Triangle(Point[] points) {
         super(points, 3);
+        this.sideLengths = new double[3];
 
-        this.a = this.getEuclideanDistance(points[0], points[1]);
-        this.b = this.getEuclideanDistance(points[1], points[2]);
-        this.c = this.getEuclideanDistance(points[2], points[0]);
+        this.sideLengths[0] = this.getEuclideanDistance(points[0], points[1]);
+        this.sideLengths[1] = this.getEuclideanDistance(points[1], points[2]);
+        this.sideLengths[2] = this.getEuclideanDistance(points[2], points[0]);
     }
 
     /**
@@ -29,8 +34,8 @@ public class Triangle extends Polygon {
      */
     @Override
     public double getArea() {
-        double p = (this.a + this.b + this.c) / 2;
-        double area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        double p = this.getPerimeter() / 2;
+        double area = Math.sqrt(p * (p - this.sideLengths[0]) * (p - this.sideLengths[1]) * (p - this.sideLengths[2]));
         return this.roundOff(area);
     }
 
@@ -41,7 +46,7 @@ public class Triangle extends Polygon {
      */
     @Override
     public double getPerimeter() {
-        double perimeter = this.a + this.b + this.c;
+        double perimeter = Arrays.stream(this.sideLengths).sum();
         return this.roundOff(perimeter);
     }
 }

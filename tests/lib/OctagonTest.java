@@ -9,7 +9,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OctagonTest {
-    Shape octagon;
+    Octagon octagon;
 
     @BeforeEach
     void setUp() throws InvalidArgumentException {
@@ -23,8 +23,19 @@ class OctagonTest {
 
     @Test
     void getPerimeter() {
-        assertEquals(this.octagon.getPerimeter(), 1222.77);
+        assertEquals(this.octagon.getPerimeter(), 1222.8);
     }
+
+    @Test
+    void getInternalAngle(){
+        assertEquals(this.octagon.internalAngle(), 135);
+    }
+
+    @Test
+    void getExternalAngle(){
+        assertEquals(this.octagon.externalAngle(), 45);
+    }
+
 
     @AfterEach
     void tearDown() {

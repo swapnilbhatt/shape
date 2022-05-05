@@ -9,7 +9,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EquilateralTriangleTest {
-    Shape equilateralTriangle;
+    EquilateralTriangle equilateralTriangle;
 
     @BeforeEach
     void setUp() throws InvalidArgumentException {
@@ -17,8 +17,16 @@ class EquilateralTriangleTest {
     }
 
     @Test
+    void shouldHaveSameSides() {
+        double[] lengths = this.equilateralTriangle.getSideLengths();
+        assertEquals(Math.round(lengths[0]), Math.round(lengths[1]));
+        assertEquals(Math.round(lengths[1]), Math.round(lengths[2]));
+        assertEquals(Math.round(lengths[2]), Math.round(lengths[0]));
+    }
+
+    @Test
     void getArea() {
-        assertEquals(this.equilateralTriangle.getArea(), 1075.0);
+        assertEquals(this.equilateralTriangle.getArea(), 1075.02);
     }
 
     @Test

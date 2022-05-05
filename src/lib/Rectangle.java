@@ -8,6 +8,17 @@ import java.awt.*;
 public class Rectangle extends Polygon {
     private final int width, height;
 
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+
     /**
      * Creates new instance of Rectangle of given width and height
      *

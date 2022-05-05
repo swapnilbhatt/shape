@@ -9,7 +9,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SquareTest {
-    Shape square;
+    Square square;
 
     @BeforeEach
     void setUp() throws InvalidArgumentException {
@@ -23,6 +23,11 @@ class SquareTest {
         } catch (InvalidArgumentException ex) {
             assertEquals(ex.getMessage(), "Enter valid height and width");
         }
+    }
+
+    @Test
+    void sameWidthAndHeight(){
+        assertEquals(square.getHeight(), square.getWidth());
     }
 
     @Test

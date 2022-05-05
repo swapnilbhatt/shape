@@ -9,7 +9,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HexagonTest {
-    Shape hexagon;
+    Hexagon hexagon;
 
     @BeforeEach
     void setUp() {
@@ -23,7 +23,17 @@ class HexagonTest {
 
     @Test
     void getPerimeter() {
-        assertEquals(this.hexagon.getPerimeter(), 1198.93);
+        assertEquals(this.hexagon.getPerimeter(), 1198.92);
+    }
+
+    @Test
+    void getInternalAngle(){
+        assertEquals(this.hexagon.internalAngle(), 120);
+    }
+
+    @Test
+    void getExternalAngle(){
+        assertEquals(this.hexagon.externalAngle(), 60);
     }
 
     @AfterEach

@@ -9,7 +9,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PentagonTest {
-    Shape pentagon;
+    Pentagon pentagon;
 
     @BeforeEach
     void setUp() {
@@ -23,7 +23,17 @@ class PentagonTest {
 
     @Test
     void getPerimeter() {
-        assertEquals(this.pentagon.getPerimeter(), 1177.08);
+        assertEquals(this.pentagon.getPerimeter(), 1177.1);
+    }
+
+    @Test
+    void getInternalAngle(){
+        assertEquals(this.pentagon.internalAngle(), 108);
+    }
+
+    @Test
+    void getExternalAngle(){
+        assertEquals(this.pentagon.externalAngle(), 72);
     }
 
     @AfterEach

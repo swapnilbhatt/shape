@@ -19,12 +19,12 @@ class TriangleTest {
 
     @Test
     void getArea() {
-        assertEquals(this.triangle.getArea(), 3800.0);
+        assertEquals(this.triangle.getArea(), 3800.33);
     }
 
     @Test
     void getPerimeter() {
-        assertEquals(this.triangle.getPerimeter(), 312.96);
+        assertEquals(this.triangle.getPerimeter(), 312.97);
     }
 
     @AfterEach
