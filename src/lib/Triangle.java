@@ -14,7 +14,7 @@ public class Triangle extends Polygon {
      *
      * @param points Three points array to draw the triangle
      */
-    public Triangle(Point[] points) throws InvalidArgumentException {
+    public Triangle(Point[] points) {
         super(points, 3);
 
         this.a = this.getEuclideanDistance(points[0], points[1]);

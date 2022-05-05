@@ -6,17 +6,22 @@ import java.util.Arrays;
 /**
  * Class to create regular Octagon whose all eight sides are equal length
  */
-public class Octagon extends Polygon {
-    private final double side;
+public class Octagon extends RegularPolygon {
+    private final Point[] vertices;
+    private final int NO_OF_VERTICES = 8;
+    private final float radius;
 
     /**
      * Creates new instance of Octagon with six equal size edges
      *
-     * @param points Eight points array to draw the Heptagon
+     * @param center Center point to draw the Heptagon
+     * @param radius Radius from center to draw the Heptagon
      */
-    public Octagon(Point[] points) throws InvalidArgumentException {
-        super(points, 8);
-        this.side = this.getEuclideanDistance(points[0], points[1]);
+    public Octagon(Point center, float radius) {
+        super(8);
+        this.setWindowTitle("Drawing an Octagon");
+        this.radius = radius;
+        vertices = calculateVertices(center, radius, NO_OF_VERTICES);
     }
 
     /**
@@ -26,8 +31,7 @@ public class Octagon extends Polygon {
      */
     @Override
     public double getArea() {
-        double area = (2 * (1 + Math.sqrt(2)) * this.side * this.side);
-        return this.roundOff(area);
+        return area(NO_OF_VERTICES, radius);
     }
 
     /**
@@ -37,7 +41,6 @@ public class Octagon extends Polygon {
      */
     @Override
     public double getPerimeter() {
-        double perimeter = 8 * this.side;
-        return this.roundOff(perimeter);
+        return perimeter(vertices);
     }
 }

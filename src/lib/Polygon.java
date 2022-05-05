@@ -5,15 +5,26 @@ import java.util.Arrays;
 
 public abstract class Polygon extends AbstractShape{
     private final int sides;
-    private final int[] x, y;
+    private int[] x, y;
+    private Point[] vertices;
 
-    Polygon(Point[] points, int sides) throws InvalidArgumentException {
-        if (points.length < sides)
-            throw new InvalidArgumentException(this.invalidLengthMsg);
+    public int getSides() {
+        return sides;
+    }
 
+    Polygon(int sides){
         this.sides = sides;
-        this.x = Arrays.stream(points).mapToInt(p -> p.x).toArray();
-        this.y = Arrays.stream(points).mapToInt(p -> p.y).toArray();
+    }
+
+    Polygon(Point[] vertices, int sides)  {
+        this(sides);
+        this.setVertices(vertices);
+    }
+
+    public void setVertices(Point[] vertices)  {
+        this.vertices = vertices;
+        this.x = Arrays.stream(vertices).mapToInt(p -> p.x).toArray();
+        this.y = Arrays.stream(vertices).mapToInt(p -> p.y).toArray();
     }
 
     @Override

@@ -4,33 +4,26 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PentagonTest {
     Shape pentagon;
 
     @BeforeEach
-    void setUp() throws InvalidArgumentException {
-        this.pentagon = new Pentagon(5);
-    }
-
-    @Test
-    void invalidParameter(){
-        try {
-            this.pentagon = new Pentagon(-5);
-        } catch (InvalidArgumentException ex){
-            assertEquals(ex.getMessage(), "Please enter valid length");
-        }
+    void setUp() {
+        this.pentagon = new Pentagon(new Point(150, 150), 200);
     }
 
     @Test
     void getArea() {
-        assertEquals(this.pentagon.getArea(), 43.01);
+        assertEquals(this.pentagon.getArea(), 95105.65);
     }
 
     @Test
     void getPerimeter() {
-        assertEquals(this.pentagon.getPerimeter(), 25);
+        assertEquals(this.pentagon.getPerimeter(), 1177.08);
     }
 
     @AfterEach

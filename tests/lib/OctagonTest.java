@@ -4,6 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class OctagonTest {
@@ -11,26 +13,17 @@ class OctagonTest {
 
     @BeforeEach
     void setUp() throws InvalidArgumentException {
-        this.octagon = new Octagon(5);
-    }
-
-    @Test
-    void invalidParameter(){
-        try {
-            this.octagon = new Octagon(-5);
-        } catch (InvalidArgumentException ex){
-            assertEquals(ex.getMessage(), "Please enter valid length");
-        }
+        this.octagon = new Octagon(new Point(150, 150), 200);
     }
 
     @Test
     void getArea() {
-        assertEquals(this.octagon.getArea(), 120.71);
+        assertEquals(this.octagon.getArea(), 113137.08);
     }
 
     @Test
     void getPerimeter() {
-        assertEquals(this.octagon.getPerimeter(), 40);
+        assertEquals(this.octagon.getPerimeter(), 1222.77);
     }
 
     @AfterEach

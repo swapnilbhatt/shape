@@ -1,5 +1,6 @@
 package lib;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -15,11 +16,12 @@ public class Circle extends AbstractShape {
      * @param radius Positive nonzero radius
      */
     public Circle(Point center, int radius) throws InvalidArgumentException {
-        super("Drawing circle");
+        super();
 
         if (radius <= 0)
-            throw new InvalidArgumentException(this.invalidLengthMsg);
+            throw new InvalidArgumentException("Enter valid radius");
 
+        this.setWindowTitle("Drawing a circle");
         this.radius = radius;
         this.center = center;
     }

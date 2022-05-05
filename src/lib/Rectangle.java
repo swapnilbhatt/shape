@@ -1,5 +1,7 @@
 package lib;
 
+import java.awt.*;
+
 /**
  * Class to create Rectangle who has opposite sides parallel to each other and of equal size
  */
@@ -17,8 +19,9 @@ public class Rectangle extends Polygon {
                 new Point(p.x + width, p.y + height), new Point(p.x, p.y + height)}, 4);
 
         if (width <= 0 || height <= 0)
-            throw new InvalidArgumentException(this.invalidLengthMsg);
+            throw new InvalidArgumentException("Enter valid height and width");
 
+        this.setWindowTitle("Drawing a Rectangle");
         this.width = width;
         this.height = height;
     }

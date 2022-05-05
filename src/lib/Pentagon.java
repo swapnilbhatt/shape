@@ -7,17 +7,22 @@ import java.util.Arrays;
  * Pentagon has five equal size edges
  * Class to create regular Pentagon whose all five sides are equal length
  */
-public class Pentagon extends Polygon {
-    private final double side;
+public class Pentagon extends RegularPolygon  {
+    private final Point[] vertices;
+    private final int NO_OF_VERTICES = 5;
+    private final float radius;
 
     /**
      * Creates new instance of Pentagon with five equal size edges
      *
-     * @param points Five points array to draw the Pentagon
+     * @param center Center point to draw the Pentagon
+     * @param radius Radius from center point to draw the Pentagon
      */
-    public Pentagon(Point[] points) throws InvalidArgumentException {
-        super(points, 5);
-        this.side = this.getEuclideanDistance(points[0], points[1]);
+    public Pentagon(Point center, float radius) {
+        super(5);
+        this.setWindowTitle("Drawing a Pentagon");
+        this.radius = radius;
+        vertices = calculateVertices(center, radius, NO_OF_VERTICES);
     }
 
     /**
@@ -27,8 +32,7 @@ public class Pentagon extends Polygon {
      */
     @Override
     public double getArea() {
-        double area = (Math.sqrt(5 * (5 + 2 * (Math.sqrt(5)))) * this.side * this.side) / 4;
-        return this.roundOff(area);
+        return area(NO_OF_VERTICES, radius);
     }
 
     /**
@@ -38,7 +42,6 @@ public class Pentagon extends Polygon {
      */
     @Override
     public double getPerimeter() {
-        double perimeter = 5.0 * this.side;
-        return this.roundOff(perimeter);
+        return perimeter(vertices);
     }
 }

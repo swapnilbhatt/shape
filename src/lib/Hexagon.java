@@ -1,20 +1,27 @@
 package lib;
 
+import java.awt.*;
+
 /**
  * Hexagon has six equal size edges
  * Class to create regular Hexagon whose all six sides are equal length
  */
-public class Hexagon extends Polygon {
-    private final double side;
+public class Hexagon extends RegularPolygon {
+    private final Point[] vertices;
+    private final int NO_OF_VERTICES = 6;
+    private final float radius;
 
     /**
      * Creates new instance of Hexagon with six equal size edges
      *
-     * @param points Six points array to draw the Heptagon
+     * @param center Center point to draw the Heptagon
+     * @param radius Radius from Center point to draw the Heptagon
      */
-    public Hexagon(Point[] points) throws InvalidArgumentException {
-        super(points, 6);
-        this.side = this.getEuclideanDistance(points[0], points[1]);
+    public Hexagon(Point center, float radius) {
+        super(6);
+        this.setWindowTitle("Drawing a Hexagon");
+        this.radius = radius;
+        vertices = calculateVertices(center, radius, NO_OF_VERTICES);
     }
 
     /**
@@ -24,8 +31,7 @@ public class Hexagon extends Polygon {
      */
     @Override
     public double getArea() {
-        double area = ((3 * Math.sqrt(3) * (this.side * this.side)) / 2);
-        return this.roundOff(area);
+        return area(NO_OF_VERTICES, radius);
     }
 
     /**
@@ -35,7 +41,6 @@ public class Hexagon extends Polygon {
      */
     @Override
     public double getPerimeter() {
-        double perimeter = 6 * this.side;
-        return this.roundOff(perimeter);
+        return perimeter(vertices);
     }
 }

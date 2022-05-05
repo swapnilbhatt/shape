@@ -6,33 +6,27 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.awt.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class HeptagonTest {
     Shape heptagon;
 
     @BeforeEach
-    void setUp() throws InvalidArgumentException {
-        this.heptagon = new Heptagon(5);
-    }
-
-    @Test
-    void invalidParameter(){
-        try {
-            this.heptagon = new Heptagon(-5);
-        } catch (InvalidArgumentException ex){
-            assertEquals(ex.getMessage(), "Please enter valid length");
-        }
+    void setUp() {
+        this.heptagon = new Heptagon(new Point(150, 150), 200);
     }
 
     @Test
     void getArea() {
-        assertEquals(this.heptagon.getArea(), 90.85);
+        assertEquals(this.heptagon.getArea(), 109456.41);
     }
 
     @Test
     void getPerimeter() {
-        assertEquals(this.heptagon.getPerimeter(), 35);
+        assertEquals(this.heptagon.getPerimeter(), 1214.7);
     }
 
     @AfterEach
